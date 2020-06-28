@@ -2,8 +2,10 @@ const express = require("express");
 const { connect } = require('mongoose');
 const routes = require("./routes");
 const bodyParser = require("body-parser") // new
+const dotenv = require('dotenv');
+dotenv.config();
 
-const url = "mongodb://localhost:27017/users";
+const url = process.env.MONGO_DB_URL;
 const app = express();
 
 connect(url, {useNewUrlParser: true})
