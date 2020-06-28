@@ -3,7 +3,7 @@ const { connect } = require('mongoose');
 const routes = require("./routes");
 const bodyParser = require("body-parser") // new
 
-const url = "mongodb://localhost/users";
+const url = "mongodb://localhost:27017/users";
 const app = express();
 
 connect(url, {useNewUrlParser: true})
