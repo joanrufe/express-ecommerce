@@ -13,11 +13,11 @@ publicRoutes.post('/auth', (req, res) => {
      expiresIn: 1440
     });
     res.json({
-     mensaje: 'Autenticación correcta',
+     msg: 'OK',
      token: token
     });
   } else {
-      res.json({ mensaje: "Usuario o contraseña incorrectos"})
+      res.json({ msg: "INVALID_USER"})
   }
 })
 

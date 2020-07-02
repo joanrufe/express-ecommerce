@@ -13,7 +13,7 @@ protectedRoutes.use((req, res, next) => {
 
     jwt.verify(token, process.env.SECRET_KEY, (err, decoded) => {      
       if (err) {
-        return res.json({ mensaje: 'Token inválida' });    
+        return res.json({ msg: 'Token inválida' });    
       } else {
         req.decoded = decoded;    
         next();
@@ -21,7 +21,7 @@ protectedRoutes.use((req, res, next) => {
     });
   } catch(err) {
     res.send({ 
-        mensaje: 'Token no proveída.' 
+        msg: 'Token no proveída.' 
     });
   }
 });
