@@ -7,7 +7,6 @@ module.exports = {
         name: req.body.name,
         birthday: req.body.birthday
       });
-      user.b
       await user.save();
       res.send(user);
     } catch(err) {
