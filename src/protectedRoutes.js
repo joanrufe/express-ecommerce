@@ -1,7 +1,6 @@
 const { Router } = require("express");
 const user = require("./controllers/user");
 const jwt = require('jsonwebtoken');
-const publicRoutes = Router();
 const protectedRoutes = Router(); 
 
 
@@ -13,7 +12,7 @@ protectedRoutes.use((req, res, next) => {
 
     jwt.verify(token, process.env.SECRET_KEY, (err, decoded) => {      
       if (err) {
-        return res.json({ msg: 'Token inválida' });    
+        return res.json({ msg: 'INVALID_TOKEN' });
       } else {
         req.decoded = decoded;    
         next();
@@ -21,7 +20,7 @@ protectedRoutes.use((req, res, next) => {
     });
   } catch(err) {
     res.send({ 
-        msg: 'Token no proveída.' 
+        msg: 'NO_TOKEN_PROVIDED.' 
     });
   }
 });
